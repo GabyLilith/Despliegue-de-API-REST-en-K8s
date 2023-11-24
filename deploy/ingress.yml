@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: 
+  name: api-ingress
+spec:
+  rules:
+    - host: api.gquiroga.com #Desde esta dirección accedemos al servicio de la api
+      http: 
+        paths: 
+        - path: /icecream
+          pathType: Prefix
+          backend: 
+            service:
+              name: java-api-service 
+              port:
+                number: 80 #Es por el puerto 80
